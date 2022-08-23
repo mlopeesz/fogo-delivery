@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MIN_LENGTH_PASSWORD, validateEmailRegex } from '../../constants';
+import { MIN_LENGTH_PASSWORD, validateEmailRegex, STATUS_OK } from '../../constants';
 import login from '../../services/api';
 import handleNavigateByUserRole from '../../utils/utils';
 
@@ -27,10 +27,10 @@ function Login() {
   };
 
   const handleLogin = async () => {
-    const user = await login(inputState);
-    if (user) {
+    const response = await login(inputState);
+    if (response.status === STATUS_OK) {
       setLoginError(false);
-      navigate(handleNavigateByUserRole(user.role));
+      navigate(handleNavigateByUserRole(response.data.role));
     }
     setLoginError(true);
   };
