@@ -1,19 +1,14 @@
-import { useNavigate } from 'react';
-
 const handleNavigateByUserRole = (role) => {
   switch (role) {
-    case 'customer':
-      useNavigate('/customer/products')
-      break;
-    case 'seller':
-      useNavigate('/seller/orders')
-      break;
-    case 'administrator':
-      useNavigate('/admin/manage')
-      break;
-    default:
-      break;
+  case 'customer':
+    return '/customer/products';
+  case 'seller':
+    return '/seller/orders';
+  case 'administrator':
+    return '/admin/manage';
+  default:
+    break;
   }
-}
+};
 
 export default handleNavigateByUserRole;
