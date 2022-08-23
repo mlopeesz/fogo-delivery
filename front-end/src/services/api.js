@@ -10,7 +10,7 @@ const login = async (inputData) => {
       email: inputData.email,
       password: inputData.password,
     });
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }
