@@ -13,7 +13,7 @@ const login = async (inputData) => {
     return response.data;
   } catch (error) {
     return error;
-  };
+  }
 };
 
 export default login;
