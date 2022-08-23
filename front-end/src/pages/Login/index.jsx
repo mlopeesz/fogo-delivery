@@ -1,13 +1,15 @@
-import React, { useState, useNavigate } from "react";
-import { MIN_LENGTH_PASSWORD, validateEmailRegex } from "../../constants";
-import login from "../../services/api";
-import handleNavigateByUserRole from "../../utils/utils";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { MIN_LENGTH_PASSWORD, validateEmailRegex } from '../../constants';
+import login from '../../services/api';
+import handleNavigateByUserRole from '../../utils/utils';
 
 function Login() {
+  const navigate = useNavigate();
   const [loginError, setLoginError] = useState(false);
   const [inputState, setInputState] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const onChangeEmailInput = ({ target }) => {
@@ -28,7 +30,7 @@ function Login() {
     const user = await login(inputState);
     if (user) {
       setLoginError(false);
-      handleNavigateByUserRole(user.role);
+      navigate(handleNavigateByUserRole(user.role));
     }
     setLoginError(true);
   };
@@ -54,7 +56,7 @@ function Login() {
         <button
           type="button"
           data-testid="common_login__button-login"
-          disabled={!validateEmailInput || validatePasswordInput}
+          disabled={ !validateEmailInput || validatePasswordInput }
           onClick={ handleLogin }
         >
           LOGIN
