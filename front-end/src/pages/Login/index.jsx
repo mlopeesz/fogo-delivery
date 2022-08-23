@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MIN_LENGTH_PASSWORD, validateEmailRegex } from '../../constants';
+import login from '../../services/api';
+import handleNavigateByUserRole from '../../utils/utils';
 
 function Login() {
+  const navigate = useNavigate();
+  const [loginError, setLoginError] = useState(false);
   const [inputState, setInputState] = useState({
     email: '',
     password: '',
@@ -19,6 +24,15 @@ function Login() {
       email: inputState.email,
       password: target.value,
     });
+  };
+
+  const handleLogin = async () => {
+    const user = await login(inputState);
+    if (user) {
+      setLoginError(false);
+      navigate(handleNavigateByUserRole(user.role));
+    }
+    setLoginError(true);
   };
 
   const validateEmailInput = inputState.email.match(validateEmailRegex);
@@ -43,21 +57,21 @@ function Login() {
           type="button"
           data-testid="common_login__button-login"
           disabled={ !validateEmailInput || validatePasswordInput }
+          onClick={ handleLogin }
         >
           LOGIN
         </button>
-        <button
-          type="button"
-          data-testid="common_login__button-register"
-        >
+        <button type="button" data-testid="common_login__button-register">
           AINDA NÃO TENHO CONTA
         </button>
       </div>
-      <div>
-        <span data-testid="common_login__element-invalid-email">
-          Mensagem escondida
-        </span>
-      </div>
+      {loginError && (
+        <div>
+          <span data-testid="common_login__element-invalid-email">
+            Mensagem escondida
+          </span>
+        </div>
+      )}
     </div>
   );
 }
