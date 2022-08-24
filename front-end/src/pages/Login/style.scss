@@ -1,0 +1,31 @@
+input {
+  padding: 8px;
+  margin: 8px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF;
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid #D80000;
+  box-shadow: 2px 2px 2px gray;
+}
+
+.logo {
+  width: 320px;
+}
+
+span {
+  padding: 8px;
+  margin: 8px;
+  text-align: center;
+}

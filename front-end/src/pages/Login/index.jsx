@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { HiOutlineMail } from 'react-icons/hi';
 import { MIN_LENGTH_PASSWORD, validateEmailRegex, STATUS_OK } from '../../constants';
 import login from '../../services/api';
 import handleNavigateByUserRole from '../../utils/utils';
+import './style.scss';
 
 function Login() {
   const navigate = useNavigate();
@@ -39,8 +41,10 @@ function Login() {
   const validatePasswordInput = inputState.password.length < MIN_LENGTH_PASSWORD;
 
   return (
-    <div>
-      <div>
+    <div className="login-container">
+      <img src="https://i.imgur.com/dnZ2nf5.png" alt="fogo-delivery-logo" className="logo" />
+      <div className="login-form">
+        <HiOutlineMail />
         <input
           type="text"
           data-testid="common_login__input-email"
@@ -53,7 +57,13 @@ function Login() {
           placeholder="Senha"
           onChange={ onChangePasswordInput }
         />
+        {loginError && (
+          <span data-testid="common_login__element-invalid-email">
+            Mensagem escondida
+          </span>
+        )}
         <button
+          className="primary-button"
           type="button"
           data-testid="common_login__button-login"
           disabled={ !validateEmailInput || validatePasswordInput }
@@ -61,17 +71,14 @@ function Login() {
         >
           LOGIN
         </button>
-        <button type="button" data-testid="common_login__button-register">
+        <button
+          className="tertiary-button"
+          type="button"
+          data-testid="common_login__button-register"
+        >
           AINDA NÃO TENHO CONTA
         </button>
       </div>
-      {loginError && (
-        <div>
-          <span data-testid="common_login__element-invalid-email">
-            Mensagem escondida
-          </span>
-        </div>
-      )}
     </div>
   );
 }
