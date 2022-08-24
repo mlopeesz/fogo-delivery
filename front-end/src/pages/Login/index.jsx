@@ -58,7 +58,7 @@ function Login() {
         />
         {loginError && (
           <span data-testid="common_login__element-invalid-email">
-            Mensagem escondida
+            ❗Usuário ou senha inválido
           </span>
         )}
         <button
