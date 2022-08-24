@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { HiOutlineMail } from 'react-icons/hi';
 import { MIN_LENGTH_PASSWORD, validateEmailRegex, STATUS_OK } from '../../constants';
 import login from '../../services/api';
 import handleNavigateByUserRole from '../../utils/utils';
@@ -44,8 +43,8 @@ function Login() {
     <div className="login-container">
       <img src="https://i.imgur.com/dnZ2nf5.png" alt="fogo-delivery-logo" className="logo" />
       <div className="login-form">
-        <HiOutlineMail />
         <input
+          id="EmailInput"
           type="text"
           data-testid="common_login__input-email"
           placeholder="E-mail"
@@ -76,7 +75,7 @@ function Login() {
           type="button"
           data-testid="common_login__button-register"
         >
-          AINDA NÃO TENHO CONTA
+          Ainda não tenho conta
         </button>
       </div>
     </div>

@@ -1,3 +1,5 @@
+$default-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
 input {
   padding: 8px;
   margin: 8px;
@@ -8,16 +10,16 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   background-color: #FFF;
-  padding: 16px;
+  padding: 32px;
   border-radius: 4px;
-  border: 1px solid #D80000;
-  box-shadow: 2px 2px 2px gray;
+  box-shadow: $default-shadow;
 }
 
 .logo {
@@ -28,4 +30,8 @@ span {
   padding: 8px;
   margin: 8px;
   text-align: center;
+}
+
+.icon {
+  margin: auto;
 }
