@@ -7,6 +7,7 @@ import {
   STATUS_CREATED,
 } from '../../constants';
 import { register } from '../../services/api';
+import './style.scss';
 
 function Register() {
   const navigate = useNavigate();
@@ -55,8 +56,9 @@ function Register() {
   const validatePasswordInput = inputState.password.length < MIN_LENGTH_PASSWORD;
 
   return (
-    <div>
-      <div className="login-form">
+    <div className="register-container">
+      <img src="https://i.imgur.com/dnZ2nf5.png" alt="fogo-delivery-logo" className="logo" />
+      <div className="register-form">
         <input
           type="text"
           data-testid="common_register__input-name"
