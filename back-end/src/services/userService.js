@@ -1,3 +1,4 @@
+const md5 = require('md5');
 const { user } = require('../database/models');
 
 const findByEmail = async (email) => {
@@ -5,4 +6,14 @@ const findByEmail = async (email) => {
   return foundUser;
 };
 
-module.exports = { findByEmail };
+const create = async (data) => {
+  const encryptedData = {
+    name: data.name,
+    email: data.email,
+    password: md5(data.password),
+  };
+  const newUser = await user.create(encryptedData);
+  return newUser;
+};
+
+module.exports = { findByEmail, create };
