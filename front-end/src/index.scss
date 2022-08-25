@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont,'Fira Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #Efeff1;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button:focus {
+  outline: 1px dotted;
+  outline: 1px auto -webkit-focus-ring-color;
+}
+
+input {
+  &:focus {
+    outline: 1px auto #d42626;
+  }
+}
+
+.primary-button {
+  padding: 8px;
+  margin: 8px;
+  background-color: #D80000;
+  color: #FFF;
+  border-radius: 4px;
+  font-weight: bold;
+  &:hover {
+    background-color: #d42626;
+  }
+  &:disabled {
+    background-color: #540101;
+  }
+}
+
+.tertiary-button {
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+  border: 1px solid #D80000;
+  background-color: #FFF;
+  font-weight: bold;
+  color: #D80000;
+  &:hover {
+    background-color: #Efeff1;
+  }
+}
