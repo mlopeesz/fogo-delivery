@@ -1,5 +1,5 @@
-const MIN_LENGTH_PASSWORD = 6;
-const validateEmailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-const STATUS_OK = 200;
-
-export { MIN_LENGTH_PASSWORD, validateEmailRegex, STATUS_OK };
+export const MIN_LENGTH_PASSWORD = 6;
+export const MIN_LENGTH_NAME = 12;
+export const validateEmailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+export const STATUS_OK = 200;
+export const STATUS_CREATED = 201;

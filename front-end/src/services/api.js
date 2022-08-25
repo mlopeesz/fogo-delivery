@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: 'http://localhost:3001',
 });
 
-const login = async (inputData) => {
+export const login = async (inputData) => {
   try {
     const response = await api.post('/login', {
       email: inputData.email,
@@ -16,4 +16,15 @@ const login = async (inputData) => {
   }
 };
 
-export default login;
+export const register = async (inputData) => {
+  try {
+    const response = await api.post('/register', {
+      name: inputData.name,
+      email: inputData.email,
+      password: inputData.password,
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
