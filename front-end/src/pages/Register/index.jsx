@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
-  MIN_LENGTH_PASSWORD, MIN_LENGTH_NAME, validateEmailRegex } from '../../constants';
+  MIN_LENGTH_PASSWORD,
+  MIN_LENGTH_NAME,
+  validateEmailRegex,
+  STATUS_CREATED,
+} from '../../constants';
+import { register } from '../../services/api';
 
 function Register() {
-  const [registerError] = useState(false);
+  const navigate = useNavigate();
+  const [registerError, setRegisterError] = useState(false);
   const [inputState, setInputState] = useState({
     name: '',
     email: '',
@@ -32,6 +39,15 @@ function Register() {
       email: inputState.email,
       password: target.value,
     });
+  };
+
+  const handleRegister = async () => {
+    const response = await register(inputState);
+    if (response.status === STATUS_CREATED) {
+      setRegisterError(false);
+      navigate('/customer/products');
+    }
+    setRegisterError(true);
   };
 
   const validateNameInput = inputState.name.length < MIN_LENGTH_NAME;
@@ -69,6 +85,7 @@ function Register() {
           type="button"
           data-testid="common_register__button-register"
           disabled={ !validateEmailInput || validatePasswordInput || validateNameInput }
+          onClick={ handleRegister }
         >
           CADASTRAR
         </button>
