@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { formatToBRL } from '../../constants';
 
 function ProductCard({ id, name, price, image }) {
+  const [counter] = useState(0);
   return (
     <div>
-      <p data-testid={ `customer_products__element-card-price-${id}` }>{price}</p>
+      <p
+        data-testid={ `customer_products__element-card-price-${id}` }
+      >
+        {formatToBRL.format(price)}
+
+      </p>
       <img
         data-testid={ `customer_products__img-card-bg-image-${id}` }
         src={ image }
@@ -21,6 +28,7 @@ function ProductCard({ id, name, price, image }) {
         <input
           data-testid={ `customer_products__input-card-quantity-${id}` }
           type="text"
+          value={ counter }
         />
         <button
           data-testid={ `customer_products__button-card-add-item-${id}` }
