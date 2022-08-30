@@ -3,7 +3,20 @@ import PropTypes from 'prop-types';
 import { formatToBRL } from '../../constants';
 
 function ProductCard({ id, name, price, image }) {
-  const [counter] = useState(0);
+  const [counter, setCounter] = useState(0);
+
+  const handleSubButton = () => {
+    setCounter(counter - 1);
+  };
+
+  const handleAddButton = () => {
+    setCounter(counter + 1);
+  };
+
+  const handleChangeInput = ({ target }) => {
+    setCounter(Number(target.value));
+  };
+
   return (
     <div>
       <p
@@ -22,6 +35,8 @@ function ProductCard({ id, name, price, image }) {
         <button
           data-testid={ `customer_products__button-card-rm-item-${id}` }
           type="button"
+          onClick={ handleSubButton }
+          disabled={ counter === 0 }
         >
           -
         </button>
@@ -29,10 +44,12 @@ function ProductCard({ id, name, price, image }) {
           data-testid={ `customer_products__input-card-quantity-${id}` }
           type="text"
           value={ counter }
+          onChange={ handleChangeInput }
         />
         <button
           data-testid={ `customer_products__button-card-add-item-${id}` }
           type="button"
+          onClick={ handleAddButton }
         >
           +
         </button>
