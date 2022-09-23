@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import ProductCard from '../../components/ProductCard';
+import { formatToBRL } from '../../constants';
 import { api } from '../../services/api';
+import './style.scss';
 
 function CustomerProducts() {
   const navigate = useNavigate();
@@ -32,24 +34,27 @@ function CustomerProducts() {
   return (
     <div>
       <Navbar />
-      {products?.map((product, index) => (
-        <ProductCard
-          key={ index }
-          id={ product.id }
-          name={ product.name }
-          price={ product.price }
-          image={ product.urlImage }
-          handleTotal={ handleTotal }
-        />
-      ))}
+      <div className="products-grid">
+        {products?.map((product, index) => (
+          <ProductCard
+            key={ index }
+            id={ product.id }
+            name={ product.name }
+            price={ product.price }
+            image={ product.urlImage }
+            handleTotal={ handleTotal }
+          />
+        ))}
+      </div>
       <button
+        className="primary-button cart-button"
         type="button"
         onClick={ () => navigate('/customer/checkout') }
         disabled={ disableButton }
         data-testid="customer_products__button-cart"
       >
         <p data-testid="customer_products__checkout-bottom-value">
-          { `Ver Carrinho: ${totalPrice.toFixed(2).replace('.', ',')}` }
+          { `Ver Carrinho: ${formatToBRL.format(totalPrice)}` }
         </p>
       </button>
     </div>

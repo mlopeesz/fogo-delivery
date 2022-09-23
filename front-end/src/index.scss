@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+$default-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont,'Fira Sans', sans-serif;
+  font-family: Inter,Arial,"Helvetica Neue",Helvetica,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #Efeff1;
@@ -30,12 +32,14 @@ input {
   background-color: #D80000;
   color: #FFF;
   border-radius: 4px;
+  border: none;
   font-weight: bold;
+  box-shadow: $default-shadow;
   &:hover {
     background-color: #d42626;
   }
   &:disabled {
-    background-color: #540101;
+    background-color: #970000;
   }
 }
 

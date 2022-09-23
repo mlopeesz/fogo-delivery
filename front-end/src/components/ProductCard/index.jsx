@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { formatToBRL } from '../../constants';
 import { setLocalStorage } from '../../utils/localStorage';
+import './style.scss';
 
 function ProductCard({ id, name, price, image, handleTotal }) {
   const [quantity, setQuantity] = useState(0);
@@ -36,20 +37,21 @@ function ProductCard({ id, name, price, image, handleTotal }) {
   }, [handleTotal, id, name, price, quantity]);
 
   return (
-    <div>
-      <p
-        data-testid={ `customer_products__element-card-price-${id}` }
-      >
-        {formatToBRL.format(price)}
-
-      </p>
+    <div className="product-card">
       <img
         data-testid={ `customer_products__img-card-bg-image-${id}` }
         src={ image }
         alt={ name }
       />
       <p data-testid={ `customer_products__element-card-title-${id}` }>{name}</p>
-      <div>
+      <p
+        className="card-price"
+        data-testid={ `customer_products__element-card-price-${id}` }
+      >
+        {formatToBRL.format(price)}
+
+      </p>
+      <div className="qty-input">
         <button
           id={ id }
           data-testid={ `customer_products__button-card-rm-item-${id}` }
