@@ -1,21 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { formatToBRL } from '../../constants';
+import { setLocalStorage } from '../../utils/localStorage';
 
-function ProductCard({ id, name, price, image }) {
-  const [counter, setCounter] = useState(0);
+function ProductCard({ id, name, price, image, handleTotal }) {
+  const [quantity, setQuantity] = useState(0);
 
-  const handleSubButton = () => {
-    setCounter(counter - 1);
+  const handleQuantity = (value) => {
+    if (value >= 0) {
+      setQuantity(value);
+    } else {
+      setQuantity(0);
+    }
   };
 
-  const handleAddButton = () => {
-    setCounter(counter + 1);
-  };
+  useEffect(() => {
+    const handleCart = () => {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const itemExistsInCart = cart.some((item) => item.id === id);
 
-  const handleChangeInput = ({ target }) => {
-    setCounter(Number(target.value));
-  };
+      if (itemExistsInCart) {
+        const updateProduct = cart.find((product) => product.id === id);
+        updateProduct.quantity = quantity;
+      }
+
+      if (!itemExistsInCart) {
+        cart.push({ id, name, price, quantity });
+      }
+
+      const filteredCart = cart.filter((prod) => prod.quantity > 0);
+      setLocalStorage('cart', JSON.stringify(filteredCart));
+      handleTotal();
+    };
+    handleCart();
+  }, [handleTotal, id, name, price, quantity]);
 
   return (
     <div>
@@ -33,23 +51,25 @@ function ProductCard({ id, name, price, image }) {
       <p data-testid={ `customer_products__element-card-title-${id}` }>{name}</p>
       <div>
         <button
+          id={ id }
           data-testid={ `customer_products__button-card-rm-item-${id}` }
           type="button"
-          onClick={ handleSubButton }
-          disabled={ counter === 0 }
+          onClick={ () => handleQuantity(quantity - 1) }
+          disabled={ quantity === 0 }
         >
           -
         </button>
         <input
           data-testid={ `customer_products__input-card-quantity-${id}` }
           type="text"
-          value={ counter }
-          onChange={ handleChangeInput }
+          value={ quantity }
+          onChange={ ({ target }) => handleQuantity(target.value) }
         />
         <button
+          id={ id }
           data-testid={ `customer_products__button-card-add-item-${id}` }
           type="button"
-          onClick={ handleAddButton }
+          onClick={ () => handleQuantity(quantity + 1) }
         >
           +
         </button>
@@ -63,6 +83,7 @@ ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  handleTotal: PropTypes.func.isRequired,
 };
 
 export default ProductCard;
