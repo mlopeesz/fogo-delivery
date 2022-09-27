@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar';
 import ProductCard from '../../components/ProductCard';
 import { formatToBRL } from '../../constants';
 import { api } from '../../services/api';
+import { setLocalStorage } from '../../utils/localStorage';
 import './style.scss';
 
 function CustomerProducts() {
@@ -25,6 +26,7 @@ function CustomerProducts() {
     });
     setDisableButton(!total);
     setTotalPrice(total);
+    setLocalStorage('totalPriceCart', total);
   };
 
   useEffect(() => {
