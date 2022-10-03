@@ -25,6 +25,7 @@ function CustomerProducts() {
     });
     setDisableButton(!total);
     setTotalPrice(total);
+    localStorage.setItem('cartTotalPrice', total);
   };
 
   useEffect(() => {
