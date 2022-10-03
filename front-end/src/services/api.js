@@ -28,3 +28,26 @@ export const register = async (inputData) => {
     return error;
   }
 };
+
+export const submitOrder = async (data) => {
+  try {
+    const response = await api.post(
+      '/customer/checkout',
+      {
+        totalPrice: data.totalPrice,
+        userId: data.userId,
+        sellerId: data.sellerId,
+        deliveryAddress: data.deliveryAddress,
+        deliveryNumber: data.deliveryNumber,
+      },
+      {
+        headers: {
+          Authorization: data.token,
+        },
+      },
+    );
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
