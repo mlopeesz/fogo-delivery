@@ -29,23 +29,30 @@ export const register = async (inputData) => {
   }
 };
 
-export const submitOrder = async (data) => {
+export const createSell = async (data, products) => {
   try {
     const response = await api.post(
-      '/customer/checkout',
+      '/sale',
       {
         totalPrice: data.totalPrice,
         userId: data.userId,
         sellerId: data.sellerId,
         deliveryAddress: data.deliveryAddress,
         deliveryNumber: data.deliveryNumber,
+        status: 'Pendente',
+        saleDate: Date.now(),
       },
       {
-        headers: {
-          Authorization: data.token,
-        },
+        headers: { Authorization: data.token },
       },
     );
+    products.forEach(async (product) => {
+      await api.post('/salesproduct', {
+        saleId: response.data,
+        productId: product.id,
+        quantity: product.quantity,
+      });
+    });
     return response;
   } catch (error) {
     return error;
