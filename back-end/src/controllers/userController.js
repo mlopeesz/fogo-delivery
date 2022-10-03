@@ -17,4 +17,9 @@ const create = async (req, res) => {
   return res.status(201).json(response);
 };
 
-module.exports = { login, create };
+const getAllSellers = async (_req, res) => {
+  const sellers = await userService.getAllSellers();
+  return res.status(200).json(sellers);
+};
+
+module.exports = { login, create, getAllSellers };
