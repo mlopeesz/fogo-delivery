@@ -1,5 +1,5 @@
 const userService = require('../services/userService');
-const generateToken = require('../auth/jwt');
+const { generateToken } = require('../auth/jwt');
 
 const login = async (req, res) => {
   const user = await userService.findByEmail(req.body.email);
@@ -22,4 +22,9 @@ const getAllSellers = async (_req, res) => {
   return res.status(200).json(sellers);
 };
 
-module.exports = { login, create, getAllSellers };
+const getUserId =  async (req, res) => {
+  const user = await userService.findByEmail(req.body.email);
+  return res.status(200).json(user.id)
+}
+
+module.exports = { login, create, getAllSellers, getUserId };
