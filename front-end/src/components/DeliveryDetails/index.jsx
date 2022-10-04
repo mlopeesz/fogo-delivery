@@ -22,6 +22,8 @@ function DeliveryDetails() {
 
   const submitOrder = async () => {
     const user = JSON.parse(localStorage.getItem('user'));
+    const cart = JSON.parse(localStorage.getItem('cart'));
+
     const data = {
       userId: await getUserId(),
       sellerId,
@@ -30,9 +32,9 @@ function DeliveryDetails() {
       deliveryNumber: addressNumber,
       token: user.token,
     };
-    console.log(data);
-    const response = await createSell(data, JSON.parse(localStorage.getItem('cart')));
-    navigate(`/customer/orders/${response.data}`);
+
+    const response = await createSell(data, cart);
+    navigate(`/customer/orders/${response.data.id}`);
   };
 
   useEffect(() => {

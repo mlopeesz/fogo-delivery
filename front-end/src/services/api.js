@@ -34,9 +34,9 @@ export const createSell = async (data, products) => {
     const response = await api.post(
       '/sale',
       {
-        totalPrice: data.totalPrice,
         userId: data.userId,
         sellerId: data.sellerId,
+        totalPrice: data.totalPrice,
         deliveryAddress: data.deliveryAddress,
         deliveryNumber: data.deliveryNumber,
         status: 'Pendente',
@@ -48,7 +48,7 @@ export const createSell = async (data, products) => {
     );
     products.forEach(async (product) => {
       await api.post('/salesproduct', {
-        saleId: response.data,
+        saleId: response.data.id,
         productId: product.id,
         quantity: product.quantity,
       });
