@@ -6,7 +6,7 @@ const create = async (req, res) => {
 };
 
 const createSalesProduct = async (req, res) => {
-  await SalesProductsService.createSaleProducts(req.body);
+  await saleService.createSalesProduct(req.body);
   return res.status(201).end();
 }
 
