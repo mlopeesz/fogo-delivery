@@ -8,6 +8,6 @@ const create = async (req, res) => {
 const createSalesProduct = async (req, res) => {
   await saleService.createSalesProduct(req.body);
   return res.status(201).end();
-}
+};
 
 module.exports = { create, createSalesProduct };

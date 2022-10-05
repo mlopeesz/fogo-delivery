@@ -22,9 +22,9 @@ const getAllSellers = async (_req, res) => {
   return res.status(200).json(sellers);
 };
 
-const getUserId =  async (req, res) => {
+const getUserId = async (req, res) => {
   const user = await userService.findByEmail(req.body.email);
-  return res.status(200).json(user.id)
-}
+  return res.status(200).json(user.id);
+};
 
 module.exports = { login, create, getAllSellers, getUserId };

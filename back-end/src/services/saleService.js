@@ -1,6 +1,5 @@
 const { sale, salesProduct } = require('../database/models');
 
-
 const create = async (data) => {
   const response = await sale.create(data);
   return response;
