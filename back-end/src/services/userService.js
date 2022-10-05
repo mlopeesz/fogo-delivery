@@ -16,4 +16,9 @@ const create = async (data) => {
   return newUser;
 };
 
-module.exports = { findByEmail, create };
+const getAllSellers = async () => {
+  const sellers = await user.findAll({ where: { role: 'seller' }, attributes: { exclude: ['password'] } });
+  return sellers;
+};
+
+module.exports = { findByEmail, create, getAllSellers };

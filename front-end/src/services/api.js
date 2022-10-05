@@ -28,3 +28,33 @@ export const register = async (inputData) => {
     return error;
   }
 };
+
+export const createSell = async (data, products) => {
+  try {
+    const response = await api.post(
+      '/sale',
+      {
+        userId: data.userId,
+        sellerId: data.sellerId,
+        totalPrice: data.totalPrice,
+        deliveryAddress: data.deliveryAddress,
+        deliveryNumber: data.deliveryNumber,
+        status: 'Pendente',
+        saleDate: Date.now(),
+      },
+      {
+        headers: { Authorization: data.token },
+      },
+    );
+    products.forEach(async (product) => {
+      await api.post('/salesproduct', {
+        saleId: response.data.id,
+        productId: product.id,
+        quantity: product.quantity,
+      });
+    });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
