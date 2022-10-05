@@ -10,4 +10,9 @@ const createSalesProduct = async (req, res) => {
   return res.status(201).end();
 };
 
-module.exports = { create, createSalesProduct };
+const getSaleByUserId = async (req, res) => {
+  const sales = await saleService.getSaleByUserId(req.body.userId);
+  return res.status(200).json(sales);
+};
+
+module.exports = { create, createSalesProduct, getSaleByUserId };
