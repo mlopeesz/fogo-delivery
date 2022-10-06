@@ -4,8 +4,8 @@ const { generateToken } = require('../auth/jwt');
 const login = async (req, res) => {
   const user = await userService.findByEmail(req.body.email);
   const token = generateToken(user);
-  const { name, email, role } = user;
-  const response = { name, email, role, token };
+  const { id, name, email, role } = user;
+  const response = { id, name, email, role, token };
   return res.status(200).json(response);
 };
 
