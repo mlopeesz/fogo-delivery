@@ -58,3 +58,12 @@ export const createSell = async (data, products) => {
     return error;
   }
 };
+
+export const getOrdersByUserId = async (id) => {
+  try {
+    const response = await api.post('/customer/orders', { userId: id });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

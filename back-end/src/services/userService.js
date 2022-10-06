@@ -17,7 +17,8 @@ const create = async (data) => {
 };
 
 const getAllSellers = async () => {
-  const sellers = await user.findAll({ where: { role: 'seller' }, attributes: { exclude: ['password'] } });
+  const sellers = await user.findAll({ where: { role: 'seller' },
+  attributes: { exclude: ['password'] } });
   return sellers;
 };
 

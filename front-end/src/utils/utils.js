@@ -1,4 +1,4 @@
-const handleNavigateByUserRole = (role) => {
+export const handleNavigateByUserRole = (role) => {
   switch (role) {
   case 'customer':
     return '/customer/products';
@@ -11,4 +11,8 @@ const handleNavigateByUserRole = (role) => {
   }
 };
 
-export default handleNavigateByUserRole;
+export const formatDate = (date) => {
+  const MAX_INDEX_DATE = 10;
+  return date !== undefined ? date.slice(0, MAX_INDEX_DATE)
+    .split('-').reverse().join('/') : null;
+};
