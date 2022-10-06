@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { MIN_LENGTH_PASSWORD, validateEmailRegex, STATUS_OK } from '../../constants';
 import { login } from '../../services/api';
 import { setLocalStorage } from '../../utils/localStorage';
-import handleNavigateByUserRole from '../../utils/utils';
+import { handleNavigateByUserRole } from '../../utils/utils';
 import './style.scss';
 
 function Login() {
