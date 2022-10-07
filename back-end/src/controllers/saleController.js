@@ -15,4 +15,10 @@ const getSaleByUserId = async (req, res) => {
   return res.status(200).json(sales);
 };
 
-module.exports = { create, createSalesProduct, getSaleByUserId };
+const getOrderById = async (req, res, _next) => {
+  const { id } = req.params;
+  const order = await saleService.getOrderById(id);
+  return res.status(200).json(order);
+};
+
+module.exports = { create, createSalesProduct, getSaleByUserId, getOrderById };
