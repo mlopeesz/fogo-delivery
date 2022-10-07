@@ -15,6 +15,11 @@ const getSaleByUserId = async (id) => {
   return sales;
 };
 
+const getOrdersBySellerId = async (id) => {
+  const sales = await sale.findAll({ where: { sellerId: id } });
+  return sales;
+};
+
 const getOrderById = async (id) => {
   const sell = await sale.findOne({
     where: { id },
@@ -29,4 +34,4 @@ const getOrderById = async (id) => {
   return sell;
 };
 
-module.exports = { create, createSalesProduct, getSaleByUserId, getOrderById };
+module.exports = { create, createSalesProduct, getSaleByUserId, getOrderById, getOrdersBySellerId };
