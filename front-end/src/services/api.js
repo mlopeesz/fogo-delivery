@@ -67,3 +67,12 @@ export const getOrdersByUserId = async (id) => {
     return error;
   }
 };
+
+export const getOrderById = async (id) => {
+  try {
+    const response = await api.get(`/salesproduct/${id}`);
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
