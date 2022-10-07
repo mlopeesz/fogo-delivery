@@ -68,6 +68,15 @@ export const getOrdersByUserId = async (id) => {
   }
 };
 
+export const getOrdersBySellerId = async (id) => {
+  try {
+    const response = await api.post('/seller/orders', { sellerId: id });
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const getOrderById = async (id) => {
   try {
     const response = await api.get(`/salesproduct/${id}`);
