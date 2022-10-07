@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getOrderById } from '../../services/api';
+import CustomerOrderInfo from '../CustomerOrderInfo';
 import OrderDetailTable from '../OrderDetailTable';
 
 function CustomerOrderDetails() {
@@ -20,6 +21,9 @@ function CustomerOrderDetails() {
 
   return (
     <div>
+      <CustomerOrderInfo
+        orderDetails={ order }
+      />
       <OrderDetailTable
         products={ products }
         totalPrice={ order.totalPrice }
