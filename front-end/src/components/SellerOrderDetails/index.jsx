@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getOrderById } from '../../services/api';
-import CustomerOrderInfo from '../CustomerOrderInfo';
 import OrderDetailTable from '../OrderDetailTable';
+import SellerOrderInfo from '../SellerOrderInfo';
 
-function CustomerOrderDetails() {
+function SellerOrderDetails() {
   const { id } = useParams();
   const [order, setOrder] = useState([]);
   const [products, setProducts] = useState([]);
@@ -21,7 +21,7 @@ function CustomerOrderDetails() {
 
   return (
     <div>
-      <CustomerOrderInfo
+      <SellerOrderInfo
         orderDetails={ order }
       />
       <OrderDetailTable
@@ -32,4 +32,4 @@ function CustomerOrderDetails() {
   );
 }
 
-export default CustomerOrderDetails;
+export default SellerOrderDetails;
