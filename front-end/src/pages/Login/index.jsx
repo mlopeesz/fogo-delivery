@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MIN_LENGTH_PASSWORD, validateEmailRegex, STATUS_OK } from '../../constants';
 import { login } from '../../services/api';
@@ -13,6 +13,9 @@ function Login() {
     email: '',
     password: '',
   });
+
+  const validateEmailInput = inputState.email.match(validateEmailRegex);
+  const validatePasswordInput = inputState.password.length < MIN_LENGTH_PASSWORD;
 
   const onChangeEmailInput = ({ target }) => {
     setInputState({
@@ -38,13 +41,21 @@ function Login() {
     setLoginError(true);
   };
 
-  const validateEmailInput = inputState.email.match(validateEmailRegex);
-  const validatePasswordInput = inputState.password.length < MIN_LENGTH_PASSWORD;
+  const redirect = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      navigate(handleNavigateByUserRole(user.role));
+    }
+  };
+
+  useEffect(() => {
+    redirect();
+  });
 
   return (
     <div className="login-container">
       <img src="https://i.imgur.com/dnZ2nf5.png" alt="fogo-delivery-logo" className="logo" />
-      <div className="login-form">
+      <form className="login-form">
         <input
           id="EmailInput"
           type="text"
@@ -56,6 +67,7 @@ function Login() {
           type="password"
           data-testid="common_login__input-password"
           placeholder="Senha"
+          autoComplete="on"
           onChange={ onChangePasswordInput }
         />
         {loginError && (
@@ -80,7 +92,7 @@ function Login() {
         >
           Ainda não tenho conta
         </button>
-      </div>
+      </form>
     </div>
   );
 }
