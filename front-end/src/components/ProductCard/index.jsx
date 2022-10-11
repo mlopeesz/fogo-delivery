@@ -51,7 +51,7 @@ function ProductCard({ id, name, price, image, handleTotal }) {
         {formatToBRL.format(price)}
 
       </p>
-      <div className="qty-input">
+      <div className="qty-input-button">
         <button
           id={ id }
           data-testid={ `customer_products__button-card-rm-item-${id}` }
@@ -62,6 +62,7 @@ function ProductCard({ id, name, price, image, handleTotal }) {
           -
         </button>
         <input
+          className="qty-input"
           data-testid={ `customer_products__input-card-quantity-${id}` }
           type="text"
           value={ quantity }
