@@ -1,0 +1,18 @@
+$default-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF;
+  padding: 32px;
+  border-radius: 4px;
+  box-shadow: $default-shadow;
+}

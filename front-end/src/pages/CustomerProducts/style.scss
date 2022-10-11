@@ -1,0 +1,12 @@
+.cart-button {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 40px;
+}
+
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
