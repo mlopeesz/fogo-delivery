@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { formatToBRL } from '../../constants';
+import './index.scss';
 
 function CheckoutTable() {
   const [totalPrice, setTotalPrice] = useState('');
@@ -26,7 +27,6 @@ function CheckoutTable() {
     <div>
       <table>
         <tbody>
-
           <tr>
             <th>Item</th>
             <th>Descrição</th>
@@ -37,64 +37,43 @@ function CheckoutTable() {
           </tr>
           {cart?.map((item, index) => (
             <tr key={ index }>
-              <td
-                data-testid={
-                  `customer_checkout__element-order-table-item-number-${index}`
-                }
-              >
+              <td>
                 {index + 1}
 
               </td>
-              <td
-                data-testid={ `customer_checkout__element-order-table-name-${index}` }
-              >
+              <td>
                 {item.name}
 
               </td>
-              <td
-                data-testid={ `customer_checkout__element-order-table-quantity-${index}` }
-              >
+              <td>
                 {item.quantity}
 
               </td>
-              <td
-                data-testid={
-                  `customer_checkout__element-order-table-unit-price-${index}`
-                }
-              >
+              <td>
                 {formatToBRL.format(item.price)}
 
               </td>
-              <td
-                data-testid={
-                  `customer_checkout__element-order-table-sub-total-${index}`
-                }
-              >
+              <td>
                 {formatToBRL.format(item.price * item.quantity)}
 
               </td>
-              <td
-                data-testid={ `customer_checkout__element-order-table-remove-${index}` }
-              >
+              <td>
                 <button
+                  className="tertiary-button"
                   type="button"
                   onClick={ () => removeItem(item) }
                 >
                   Remover item
 
                 </button>
-
               </td>
             </tr>
           ))}
         </tbody>
+        <td className="checkout-total-price">
+          {`Total: ${formatToBRL.format(totalPrice)}`}
+        </td>
       </table>
-      <span
-        data-testid="customer_checkout__element-order-total-price"
-      >
-        {formatToBRL.format(totalPrice)}
-
-      </span>
     </div>
   );
 }

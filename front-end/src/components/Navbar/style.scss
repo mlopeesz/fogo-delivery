@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   justify-content: space-evenly;
-  background-color: #D80000;
+  background-color: #96031A;
   min-height: 72px;
 }
 
@@ -10,9 +10,9 @@
   flex-direction: column;
   align-items: center;
   align-self: center;
-  color: #FFF;
+  color: #FBFFFE;
   border: none;
-  background-color: #D80000;
+  background-color: #96031A;
   font-size: 18px;
   &:hover {
     -webkit-transform: scale(1.1);
