@@ -37,7 +37,7 @@ Inicialmente pensado para ter as seguintes funcionalidades:
 5 - Você pode criar uma conta nova para logar como cliente ou utilizar os já cadastrados para login:   
 - Cliente:   
 Email: zebirita@email.com   
-Senha: \$#zebirita#$  
+Senha: \$\#zebirita\#\$  
 
 - Vendedor:   
 Email: fulana@deliveryapp.com   
