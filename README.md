@@ -13,6 +13,8 @@ Inicialmente pensado para ter as seguintes funcionalidades:
 🚧 EM CONSTRUÇÃO 🚧
 
 ## Tecnologias Utilizadas 💻
+![eer-fogodelivery](https://user-images.githubusercontent.com/87342822/195911057-1b186bb0-19df-4597-8704-a5edffd3deff.png)
+
 ### Back-end:
 - NodeJS
 - express
