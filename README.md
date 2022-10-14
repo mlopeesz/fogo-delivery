@@ -30,7 +30,22 @@ Inicialmente pensado para ter as seguintes funcionalidades:
 - Axios
 
 ## Abrir e rodar o projeto 🛠
-🚧 EM CONSTRUÇÃO 🚧
+1 - Clone o projeto.
+2 - Execute ```npm install``` na raíz do projeto.
+3 - Não se esqueça de configurar suas variáveis de ambiente no back-end no arquivo ```.env.example``` e renomeá-lo para ```.env```.
+4 - Execute ```npm start``` e as dependências do back-end e do front-end serão instaladas automaticamente.
+5 - Você pode criar uma conta nova para logar como cliente ou utilizar os já cadastrados para login:
+- Cliente:   
+Email: zebirita@email.com   
+Senha: $#zebirita#$   
+
+- Vendedor:   
+Email: fulana@deliveryapp.com   
+Senha: fulana@123   
+
+- Administrador:   
+Email: adm@deliveryapp.com   
+Senha: --adm2@21!!--   
 
 ## Pessoas Colaboradoras 👥
 Projeto inicialmente idealizado e desenvolvido em grupo no curso da Trybe por:
