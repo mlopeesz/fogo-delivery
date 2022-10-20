@@ -1,6 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaRegUserCircle } from 'react-icons/fa';
+import { IoBeerOutline } from 'react-icons/io5';
+import { BsCartCheck } from 'react-icons/bs';
+import { MdLogout } from 'react-icons/md';
 import { removeLocalStorage } from '../../utils/localStorage';
+import './style.scss';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -16,27 +21,38 @@ function Navbar() {
   };
 
   return (
-    <nav>
-      <div>
-        <p data-testid="customer_products__element-navbar-link-products">PRODUTOS</p>
-        <p data-testid="customer_products__element-navbar-link-orders">MEUS PEDIDOS</p>
-      </div>
-      <div>
-        <p
-          data-testid="customer_products__element-navbar-user-full-name"
-        >
-          { getUserName() }
-
-        </p>
-        <button
-          type="button"
-          data-testid="customer_products__element-navbar-link-logout"
-          onClick={ handleLogout }
-        >
-          SAIR
-
-        </button>
-      </div>
+    <nav className="navbar">
+      <button
+        className="nav-item"
+        type="button"
+        onClick={ () => navigate('/customer/products') }
+      >
+        <IoBeerOutline size="2em" color="white" />
+        Produtos
+      </button>
+      <button
+        className="nav-item"
+        type="button"
+        onClick={ () => navigate('/customer/orders') }
+      >
+        <BsCartCheck size="2em" color="white" />
+        Meus Pedidos
+      </button>
+      <button
+        className="nav-item"
+        type="button"
+      >
+        <FaRegUserCircle size="2em" color="white" />
+        { getUserName() }
+      </button>
+      <button
+        className="nav-item"
+        type="button"
+        onClick={ handleLogout }
+      >
+        <MdLogout size="2em" color="white" />
+        Logout
+      </button>
     </nav>
   );
 }

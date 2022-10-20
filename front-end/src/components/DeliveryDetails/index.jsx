@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api, createSell } from '../../services/api';
+import './index.scss';
 
 function DeliveryDetails() {
   const [sellers, setSellers] = useState();
@@ -42,9 +43,9 @@ function DeliveryDetails() {
   }, []);
 
   return (
-    <div>
-      <h2>Detalhes e Endereço para Entrega</h2>
-      <select data-testid="customer_checkout__select-seller">
+    <div className="delivery-details-container">
+      <h2 className="delivery-details-title">Detalhes e Endereço para Entrega</h2>
+      <select className="select-seller">
         {sellers?.map((seller, index) => (
           <option
             key={ index }
@@ -56,20 +57,21 @@ function DeliveryDetails() {
           </option>
         ))}
       </select>
+
       <input
-        data-testid="customer_checkout__input-address"
         type="text"
         value={ address }
         onChange={ (e) => setAddress(e.target.value) }
+        placeholder="Rua Fogo Delivery"
       />
       <input
-        data-testid="customer_checkout__input-addressNumber"
         type="text"
         value={ addressNumber }
         onChange={ (e) => setAddressNumber(e.target.value) }
+        placeholder="123"
       />
       <button
-        data-testid="customer_checkout__button-submit-order"
+        className="primary-button"
         type="button"
         onClick={ submitOrder }
       >
