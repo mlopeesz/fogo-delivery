@@ -25,6 +25,7 @@ function Navbar() {
       <button
         className="nav-item"
         type="button"
+        onClick={ () => navigate('/customer/products') }
       >
         <IoBeerOutline size="2em" color="white" />
         Produtos
@@ -32,6 +33,7 @@ function Navbar() {
       <button
         className="nav-item"
         type="button"
+        onClick={ () => navigate('/customer/orders') }
       >
         <BsCartCheck size="2em" color="white" />
         Meus Pedidos
