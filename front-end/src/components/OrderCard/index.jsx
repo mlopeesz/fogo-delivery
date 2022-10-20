@@ -2,26 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { formatDate } from '../../utils/utils';
 import { formatToBRL } from '../../constants';
+import './index.scss';
 
 function OrderCard({ orderId, orderStatus, orderDate, orderPrice }) {
   return (
-    <div>
-      <p data-testid={ `customer_orders__element-order-id-${orderId}` }>{orderId}</p>
-      <p
-        data-testid={ `customer_orders__element-delivery-status-${orderId}` }
-      >
+    <div className="card-container">
+      <p>{orderId}</p>
+      <p className="order-status">
         {orderStatus}
 
       </p>
-      <p
-        data-testid={ `customer_orders__element-order-date-${orderId}` }
-      >
+      <p className="order-date">
         {formatDate(orderDate)}
 
       </p>
-      <p
-        data-testid={ `customer_orders__element-card-price-${orderId}` }
-      >
+      <p className="order-price">
         {formatToBRL.format(orderPrice)}
 
       </p>

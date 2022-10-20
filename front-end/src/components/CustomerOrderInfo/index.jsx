@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { formatDate } from '../../utils/utils';
 import { api } from '../../services/api';
+import './index.scss';
 
 function CustomerOrderInfo({ orderDetails }) {
   const [sellerName, setSellerName] = useState();
@@ -20,12 +21,12 @@ function CustomerOrderInfo({ orderDetails }) {
   }, []);
 
   return (
-    <div>
+    <div className="info-card-container card-container">
       <p>{orderDetails.id}</p>
       <p>{sellerName?.name}</p>
       <p>{formatDate(orderDetails.saleDate)}</p>
       <p>{orderDetails.status}</p>
-      <button type="button">MARCAR COMO ENTREGUE</button>
+      <button className="tertiary-button" type="button">MARCAR COMO ENTREGUE</button>
     </div>
   );
 }

@@ -38,10 +38,12 @@ function OrderDetailTable({ products, totalPrice }) {
             </tr>
           ))}
         </tbody>
+        <span className="checkout-total-price">
+          Valor Total:
+          {' '}
+          {formatToBRL.format(totalPrice)}
+        </span>
       </table>
-      <span>
-        {formatToBRL.format(totalPrice)}
-      </span>
     </div>
   );
 }

@@ -7,7 +7,7 @@ body {
   font-family: Inter,Arial,"Helvetica Neue",Helvetica,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #Efeff1;
+  background-color: #FBFFFE;
 }
 
 code {
@@ -29,8 +29,8 @@ input {
 .primary-button {
   padding: 8px;
   margin: 8px;
-  background-color: #D80000;
-  color: #FFF;
+  background-color: #96031A;
+  color: #FBFFFE;
   border-radius: 4px;
   border: none;
   font-weight: bold;
@@ -47,11 +47,17 @@ input {
   padding: 8px;
   margin: 8px;
   border-radius: 4px;
-  border: 1px solid #D80000;
-  background-color: #FFF;
+  border: 1px solid #96031A;
+  background-color: #FBFFFE;
   font-weight: bold;
-  color: #D80000;
+  color: #96031A;
   &:hover {
     background-color: #Efeff1;
   }
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  color: #96031A;
 }
