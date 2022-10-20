@@ -1,4 +1,3 @@
-# 🚧 EM CONSTRUÇÃO 🚧
 # Fogo Delivery 🔥
 
 O Fogo Delivery é um projeto que envolve o desenvolvimento e integração do back-end e front-end de uma plataforma de delivery de bebidas!
@@ -56,3 +55,5 @@ Projeto inicialmente idealizado e desenvolvido em grupo no curso da Trybe por:
 - [Larissa Araújo](https://github.com/larissajuliavsa)
 
 Nesse repositório pessoal, o projeto foi refeito, refatorado e repensado somente por mim para fins de aprendizado.
+
+## 🚧 EM DESENVOLVIMENTO 🚧
