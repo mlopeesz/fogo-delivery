@@ -9,6 +9,8 @@ Inicialmente pensado para ter as seguintes funcionalidades:
 - Se a pessoa cliente faz o pedido, o mesmo deve aparecer para a pessoa vendedora em seu dash de pedidos após a atualização da página. A pessoa cliente, por sua vez, deve ter as informações sobre seu pedido quando sua página for atualizada, ou seja, ter informações se o pedido está sendo preparado ou se já saiu pra entrega;
 
 ## Funcionalidades e Demonstração 👨‍💻
+### 🚧Algumas funcionalidades ainda em desenvolvimento.🚧
+
 ### Login
 É possível realizar login com validações tanto no front-end como no back-end e uso do JWT.
 ![1 - login](https://user-images.githubusercontent.com/87342822/196983984-b8f29827-e05c-4fc1-a7c4-65b1c67e6c51.gif)
@@ -77,5 +79,3 @@ Projeto inicialmente idealizado e desenvolvido em grupo no curso da Trybe por:
 - [Larissa Araújo](https://github.com/larissajuliavsa)
 
 Nesse repositório pessoal, o projeto foi refeito, refatorado e repensado somente por mim para fins de aprendizado.
-
-## 🚧 EM DESENVOLVIMENTO 🚧
