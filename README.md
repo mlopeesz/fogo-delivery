@@ -9,7 +9,29 @@ Inicialmente pensado para ter as seguintes funcionalidades:
 - Se a pessoa cliente faz o pedido, o mesmo deve aparecer para a pessoa vendedora em seu dash de pedidos após a atualização da página. A pessoa cliente, por sua vez, deve ter as informações sobre seu pedido quando sua página for atualizada, ou seja, ter informações se o pedido está sendo preparado ou se já saiu pra entrega;
 
 ## Funcionalidades e Demonstração 👨‍💻
-🚧 EM CONSTRUÇÃO 🚧
+### Login
+É possível realizar login com validações tanto no front-end como no back-end e uso do JWT.
+![1 - login](https://user-images.githubusercontent.com/87342822/196983984-b8f29827-e05c-4fc1-a7c4-65b1c67e6c51.gif)
+
+### Cadastro
+É possível realizar cadastro com validações tanto no front-end como no back-end e uso do JWT.
+![2 - cadastro](https://user-images.githubusercontent.com/87342822/196984005-b3b997c5-dbda-4f74-9500-66e1c9ab732f.gif)
+
+### Produtos
+Você pode adicionar produtos ao carrinho, acompanhar o valor total e prosseguir para a tela de finalizar pedido.
+![3 - produtos](https://user-images.githubusercontent.com/87342822/196984023-fa5ec483-e79e-4076-8377-5f7f110cd6c5.gif)
+
+### Carrinho
+No carrinho você pode conferir os itens do seu pedido, remover algum item ou finalizar o pedido informando os dados do endereço para a entrega.
+![4 - carrinho](https://user-images.githubusercontent.com/87342822/196984045-b99932c3-12a8-49bd-b54f-6ca98f8e4a21.gif)
+
+### Detalhe do Pedido
+Na página de detalhes do pedido, você pode conferir as informações gerais do pedido e marcar o pedido como entregue.
+![5 - detalhe do pedido](https://user-images.githubusercontent.com/87342822/196984061-f51f462e-4a19-4b10-a07f-bdaa7131d2cf.gif)
+
+### Pedidos
+Aqui você pode conferir todos os pedidos que foram feitos e ir para a página de detalhes de algum deles.
+![6 - meus pedidos](https://user-images.githubusercontent.com/87342822/196984086-72538bcb-b4ce-4460-bd22-c7d891d88ec5.gif)
 
 ## Tecnologias Utilizadas 💻
 ![eer-fogodelivery](https://user-images.githubusercontent.com/87342822/195911057-1b186bb0-19df-4597-8704-a5edffd3deff.png)
