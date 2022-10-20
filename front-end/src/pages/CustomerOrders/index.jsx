@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import OrderCard from '../../components/OrderCard';
 import { getOrdersByUserId } from '../../services/api';
+import './index.scss';
 
 function CustomerOrders() {
   const [orders, setOrders] = useState([]);
@@ -21,21 +22,25 @@ function CustomerOrders() {
   return (
     <div>
       <Navbar />
-      {orders.map((order, index) => (
-        <button
-          key={ index }
-          type="button"
-          onClick={ () => navigate(`${order.id}`) }
-        >
-          <OrderCard
+      <h1 className="title">Meus Pedidos</h1>
+      <div className="orders-container">
+        {orders.map((order, index) => (
+          <button
             key={ index }
-            orderId={ order.id }
-            orderStatus={ order.status }
-            orderDate={ order.saleDate }
-            orderPrice={ order.totalPrice }
-          />
-        </button>
-      ))}
+            type="button"
+            onClick={ () => navigate(`${order.id}`) }
+            className="tertiary-button"
+          >
+            <OrderCard
+              key={ index }
+              orderId={ order.id }
+              orderStatus={ order.status }
+              orderDate={ order.saleDate }
+              orderPrice={ order.totalPrice }
+            />
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
